@@ -25,9 +25,10 @@
         <x-splade-data store="navigation" default="{ opened: false }" />
 
         <!-- other elements... -->
-        <x-splade-defer url="http://127.0.0.1:8000/api/user">
+        <x-splade-defer method="post" url="/user" request="{ user_id: 1}">
             <p v-show="processing">Loading data...</p>
-            <p v-for="data in response" v-text="data.name"/>
+            {{-- <p v-for="data in response" v-text="data.name"/> --}}
+            <p v-if="response" v-text="response.name"/>
             <button @click.prevent="reload">Reload</button>
         </x-splade-defer>
 

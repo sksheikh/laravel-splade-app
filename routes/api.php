@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,7 +20,4 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/user', function(){
-    $users = User::get();
-    return response()->json($users);
-})->name('user.data');
+// Route::get('/user', [UserController::class, 'index'])->name('user.data');

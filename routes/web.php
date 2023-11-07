@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ Route::middleware(['splade'])->group(function () {
 
 
     Route::get('/docs', fn () => view('docs'))->name('docs');
+    Route::post('/user', [UserController::class, 'index'])->name('user.data');
 
     // Registers routes to support the interactive components...
     Route::spladeWithVueBridge();
